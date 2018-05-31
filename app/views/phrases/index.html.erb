@@ -1,0 +1,7 @@
+<button id="get-phrase">Get Phrase</button>
+<button id="clear-phrase">Clear Phrase</button>
+<div id="main">
+	<% @phrases.each do |phrase| %>
+		<li><%= phrase.name %></li>
+	<% end %>
+</div>
