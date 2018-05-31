@@ -20,13 +20,16 @@ $(document).ready(function(){
 		$("#clear-phrase").on('click', function(){
 			$.ajax({url: "/clear", type: 'POST', dataType: 'json', success: function(result){
 				$("#main").html("")
+				$('#get-phrase').removeAttr('disabled')
 		    }});
 			
 		})
 		$("#get-phrase").on('click', function(){
+			$('#get-phrase').attr('disabled','disabled')
 			$.ajax({url: "/get_phrase", type: 'POST', dataType: 'json', success: function(result){
-				if(result.name != undefined){
+					if(result.name != undefined){
 		        	$("#main").append("<li>"+ result.name +"</li>");
+		        	$('#get-phrase').removeAttr('disabled')
 				}
 		    }});
 		})
